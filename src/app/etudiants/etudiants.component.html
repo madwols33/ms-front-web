@@ -1,0 +1,25 @@
+<p>test</p>
+<div *ngIf="listFormations" class="container">
+  <div class="panel panel-primary">
+    <div class="panel panel-heading">Liste Des etudiants</div>
+    <div class="panel-body">
+      <span *ngFor="let f of listFormations._embedded.formations">
+         <button (click)="onGetEtudiants(f)" [ngClass]="f.id==currentFormation.id?'btn btn-danger':'btn btn-primary'">{{f.nom}}</button>
+      </span>
+      <p></p>
+      <table class="table" *ngIf="listEtudiants">
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Date Naissance</th>
+        </tr>
+        <tr *ngFor="let e of listEtudiants._embedded.etudiants">
+
+          <td>{{e.nom}}</td>
+          <td>{{e.prenom}}</td>
+          <td>{{e.dateNassance}}</td>
+        </tr>
+        </table>
+    </div>
+  </div>
+</div>
